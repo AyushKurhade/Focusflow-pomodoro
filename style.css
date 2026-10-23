@@ -1559,57 +1559,7 @@ pre {
   }
 }
 
-
-/* Developer Signature Footer */
-.developer-signature {
-  width: 100%;
-  margin-top: 40px;
-  padding: 28px 16px 20px;
-  text-align: center;
-}
-
-.signature-message {
-  margin: 0 0 10px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text, #333);
-}
-
-.signature-description {
-  max-width: 440px;
-  margin: 0 auto 14px;
-  font-size: 13px;
-  line-height: 1.8;
-  color: var(--text-secondary, #777);
-}
-
-.signature-image {
-  display: block;
-  width: 150px;
-  max-width: 60%;
-  height: auto;
-  margin: 12px auto;
-  object-fit: contain;
-}
-
-.signature-credit {
-  margin: 8px 0;
-  font-size: 13px;
-  color: var(--text-secondary, #777);
-}
-
-.signature-credit strong {
-  color: var(--text, #333);
-}
-
-.signature-tagline {
-  margin: 8px 0 0;
-  font-size: 12px;
-  color: var(--text-secondary, #777);
-}
-
-
-
+ 
 /* FocusFlow Developer Footer */
 .developer-signature {
   display: flex;
@@ -1682,4 +1632,153 @@ pre {
   }
 }
 
- 
+
+/* ========================================
+   FocusFlow Footer — Desktop
+======================================== */
+
+.site-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 36px;
+  padding: 36px clamp(24px, 7vw, 100px);
+  border-top: 1px solid var(--border, #e5e5e5);
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0;
+  transform: translateX(40px);
+}
+
+.footer-brand {
+  justify-self: auto;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer-description {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: left;
+  color: var(--text-secondary, #777);
+}
+
+.footer-back-link {
+  align-self: flex-start;
+  justify-self: auto;
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none;
+  color: var(--text-secondary, #777);
+}
+
+.footer-back-link:hover {
+  color: var(--text, #222);
+}
+
+.footer-divider {
+  display: none;
+}
+
+.footer-creator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 0;
+  text-align: left;
+}
+
+.signature-message {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text, #222);
+}
+
+.signature-description {
+  max-width: 500px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--text-secondary, #777);
+}
+
+.signature-image {
+  display: block;
+  width: 145px;
+  max-width: 60%;
+  height: auto;
+  margin: 4px 0;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.signature-credit,
+.signature-tagline {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text-secondary, #777);
+}
+
+.signature-credit {
+  font-size: 13px;
+}
+
+.signature-credit strong {
+  color: var(--text, #222);
+}
+
+.signature-tagline {
+  font-size: 12px;
+}
+
+/* ========================================
+   FocusFlow Footer — Mobile
+======================================== */
+
+@media (max-width: 650px) {
+  .site-footer {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 28px;
+    padding: 28px 22px;
+  }
+
+  .footer-top {
+    align-items: center;
+    text-align: center;
+    transform: none;
+  }
+
+  .footer-description {
+    text-align: center;
+  }
+
+  .footer-back-link {
+    align-self: center;
+  }
+
+  .footer-creator {
+    align-items: center;
+    text-align: center;
+  }
+
+  .signature-description {
+    max-width: 360px;
+  }
+
+  .signature-image {
+    margin: 4px auto;
+  }
+}
