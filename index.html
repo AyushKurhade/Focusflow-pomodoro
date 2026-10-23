@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111318">
+    <title>FocusFlow | Pomodoro Study Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Glory:ital,wght@0,100..800;1,100..800&family=Google+Sans+Flex:opsz,wght@1..144,1..1000&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Overpass:ital,wght@0,100..900;1,100..900&family=Playwrite+US+Trad+Guides&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=SUSE:ital,wght@0,100..900;1,100..900&family=Sevillana&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app">
+        <header class="topbar">
+            <a href="#" class="logo">
+                <span class="logo-icon">🍅</span>
+                <span>Focus<span class="accent">Flow</span></span>
+            </a>
+
+            <div class="date-info">
+                <span class="status-dot"></span>
+                <span id="current-date">Your study dashboard</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="welcome">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+                    <h1>Make today <span class="accent">count.</span></h1>
+                    <p class="subtitle">One session at a time. Stay focused, keep growing.</p>
+                </div>
+
+                <div class="goal-badge">
+                    <span>🎯</span>
+                    <span><strong id="goal-label">2 hours</strong><small>Daily goal</small></span>
+                </div>
+            </section>
+
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Focus time</span>
+                        <span class="stat-icon red">◷</span>
+                    </div>
+                    <h2 id="focus-total">0m</h2>
+                    <p>Today's study time</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Sessions</span>
+                        <span class="stat-icon yellow">✓</span>
+                    </div>
+                    <h2 id="sessions-total">0</h2>
+                    <p>Sessions completed today</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Daily progress</span>
+                        <span class="stat-icon green">↗</span>
+                    </div>
+                    <h2 id="progress-total">0%</h2>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="goal-progress"></div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="main-grid">
+                <article class="panel timer-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">TIME TO FOCUS</p>
+                            <h2>Pomodoro Timer</h2>
+                        </div>
+                        <span class="live-badge">
+                            <span class="status-dot"></span> Ready
+                        </span>
+                    </div>
+
+                    <div class="mode-tabs">
+                        <button class="mode-btn active" data-mode="focus">Focus</button>
+                        <button class="mode-btn" data-mode="short">Short break</button>
+                        <button class="mode-btn" data-mode="long">Long break</button>
+                    </div>
+
+                    <div class="timer-circle" id="timer-circle">
+                        <div class="timer-content">
+                            <span class="timer-emoji" id="timer-emoji">🍅</span>
+                            <div class="timer-display" id="timer">25:00</div>
+                            <p id="timer-status">Ready to focus?</p>
+                        </div>
+                    </div>
+
+                    <div class="session-counter">
+                        <span class="session-dot active"></span>
+                        <span class="session-dot"></span>
+                        <span class="session-dot"></span>
+                        <span class="session-dot"></span>
+                        <span id="session-label">Session 1 of 4</span>
+                    </div>
+
+                    <div class="timer-controls">
+                        <button class="btn-secondary" id="reset-btn">↺ Reset</button>
+                        <button class="btn-primary" id="start-btn">▶ Start Focus</button>
+                        <button class="btn-secondary" id="skip-btn" title="Skip current session">Skip →</button>
+                    </div>
+
+                    <p class="timer-hint">Stay consistent. Your progress adds up.</p>
+                </article>
+
+                <article class="panel tasks-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">STAY ORGANIZED</p>
+                            <h2>Today's Tasks</h2>
+                        </div>
+                        <span class="task-count" id="task-count">0 tasks</span>
+                    </div>
+
+                    <form id="task-form" class="task-form">
+                        <input
+                            type="text"
+                            id="task-input"
+                            placeholder="What do you need to study?"
+                            maxlength="100"
+                            autocomplete="off"
+                            required
+                        >
+                        <button type="submit" aria-label="Add task">+</button>
+                    </form>
+
+                    <div class="task-list" id="task-list">
+                        <div class="empty-state">
+                            <span>📝</span>
+                            <p>No tasks yet</p>
+                            <small>Add your first study task above.</small>
+                        </div>
+                    </div>
+
+                    <div class="task-footer">
+                        <span id="task-summary">Small steps lead to big results.</span>
+                        <button id="clear-completed" class="text-btn">Clear completed</button>
+                    </div>
+                </article>
+            </section>
+
+            <section class="bottom-grid">
+                <article class="panel goal-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">BUILD A HABIT</p>
+                            <h2>Daily Study Goal</h2>
+                        </div>
+                        <span class="stat-icon yellow">🎯</span>
+                    </div>
+
+                    <div class="goal-details">
+                        <div>
+                            <span class="muted">Focused today</span>
+                            <h3 id="goal-time">0 min <span>/ 120 min</span></h3>
+                        </div>
+                        <span id="goal-percent">0%</span>
+                    </div>
+
+                    <div class="progress-track goal-track">
+                        <div class="progress-fill" id="goal-progress-large"></div>
+                    </div>
+
+                    <div class="goal-settings">
+                        <label for="goal-select">Daily target</label>
+                        <select id="goal-select">
+                            <option value="60">1 hour</option>
+                            <option value="120" selected>2 hours</option>
+                            <option value="180">3 hours</option>
+                            <option value="240">4 hours</option>
+                            <option value="300">5 hours</option>
+                            <option value="360">6 hours</option>
+                        </select>
+                    </div>
+                </article>
+
+                <article class="panel tip-panel">
+                    <div class="tip-icon">💡</div>
+                    <p class="eyebrow">A LITTLE REMINDER</p>
+                    <h2>Protect your focus.</h2>
+                    <p>Put your phone away, pick one task, and give it your full attention until the timer ends.</p>
+                    <div class="tip-footer">Consistency beats intensity.</div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made for better focus, one Pomodoro at a time. 🍅</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
