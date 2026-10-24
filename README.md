@@ -5,7 +5,14 @@
 FocusFlow is a Pomodoro study timer with task tracking, daily goals, weekly analytics, and a study history calendar. It runs entirely in the browser with no backend, no sign-up, and no dependencies. Your data stays on your device.
  
 ---
- 
+
+ ## 🚀 Live Demo
+
+**Try FocusFlow here:** [focusflow-pomodoro.vercel.app](https://focusflow-pomodoro-beryl.vercel.app/)
+
+Explore the Pomodoro timer, manage your tasks, and track your study progress — all in your browser.
+
+--- 
 ## 🧠 How It Works
  
 1. **Pick a task** (optional) and press **Start** to begin a 25-minute focus session.
